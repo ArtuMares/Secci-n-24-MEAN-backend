@@ -6,7 +6,7 @@ const {generarjwt} = require("../helpers/jwt")
 //Controlador del post de creación de usuario
 const crearUsuario = async(req, res = response)=>{    
 
-    const {name,email,password}= req.body;
+    const {name,email,password, registro, carrera, role}= req.body;
 
     try {
     //verificar si no existe otro usuario
@@ -33,7 +33,10 @@ const crearUsuario = async(req, res = response)=>{
             uid: dbUser.id,
             name,
             email,
-            token
+            token,
+            registro,
+            carrera,
+            role
         })
 
     } catch (error) {
@@ -75,7 +78,10 @@ const loginUsuario =  async(req, res =response)=>{
             uid: dbUser.id,
             name:dbUser.name,
             email:dbUser.email,
-            token
+            token,
+            registro: dbUser.registro,
+            carrera: dbUser.carrera,
+            role: dbUser.role
         });
 
     } catch (error) {
@@ -100,7 +106,10 @@ const renewUsuario = async(req, res=response)=>{
         uid,
         name: dbUser.name,
         email: dbUser.email,
-        token
+        token,
+        registro: dbUser.registro,
+        carrera: dbUser.carrera,
+        role: dbUser.role
     })
 }
 

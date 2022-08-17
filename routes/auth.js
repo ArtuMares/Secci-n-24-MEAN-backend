@@ -12,6 +12,9 @@ router.post("/new", [
     check("email", "El email es obligatorio").isEmail(),
     check("password", "La contraseña es obligatoria").isLength({ min: 6 }),
     check("name", "El nombre es obligatorio").not().isEmpty(),
+    check("registro", "El registro es obligatorio").not().isEmpty(),
+    check("carrera", "La carera es obligatoria").not().isEmpty(),
+    check("role", "El role es obligatorio").not().isEmpty(),
     validarCampos],
      crearUsuario);
 
